@@ -1,6 +1,7 @@
 // Accolite Digital :
 // Write a program to generate an output array containing the Top 3 maximum
 //  occurring words out of all the Strings.
+// Output: [“Hello”, “Accolite”, “and”]
 
 let arr = [
   "Hello how are you",
@@ -8,18 +9,20 @@ let arr = [
   "Hello wishing you luck for Accolite interview",
   "So lets start and rock it",
 ];
-// Output: [“Hello”, “Accolite”, “and”]
 
-const arrObj =  arr.map(str=>{
+const countObj ={}
+let ans
 
-   return str.split(' ').reduce((acc,cv)=>{
-        if(acc in cv) {
+for(let i =0;i<arr.length;i++) {
+
+     ans = arr[i].split(' ').reduce((acc,cv)=>{
+        if(cv in acc) {
             acc[cv]++
-        } else; {
+        } else {
             acc[cv]=1
         }
         return acc
-    },{})
-})
+    },countObj)
+}
 
-console.log(arrObj)
+console.log(ans)
