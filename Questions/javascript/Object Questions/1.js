@@ -25,4 +25,9 @@ const companies = [
     return acc
   },{})
 
-  console.log(newObj)
+
+  let arr = Object.values(newObj)
+
+  let newArray = arr.map(inArr=>{
+    let ids = 
+  })
