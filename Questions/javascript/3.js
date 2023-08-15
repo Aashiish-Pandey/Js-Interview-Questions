@@ -1,4 +1,6 @@
-// Rotate the array in efficient way
+// Rotate the array in an efficient way
+
+approch1 : O(n^2)
 
 // array = [1,2,3,4,5] rotate=3
 
@@ -8,24 +10,17 @@ let arr = [1, 2, 3, 4, 5];
 // 2nd 34512
 // 3rd 45123
 
-let rotate = 2;
+let rotate = 4;
 
 function rotateArray(arr, rotate) {
-  let i = 1;
-if(i===arr.size) {
-    console.log(i)
-    return arr
-} else {
-    while ( i<=rotate) {
-        console.log(i)
-        arr.push(arr.shift());
-        i++
+  const totalRotaion = rotate % arr.length;
+  console.log(totalRotaion);
 
-      }
-    
-      return arr;
-}
-  
+  for (let i = 0; i < totalRotaion; i++) {
+    let firstEl = arr.shift();
+    arr.push(firstEl);
+  }
+  return arr;
 }
 
-console.log(rotateArray(arr, 10));
+console.log(rotateArray(arr, 11));
