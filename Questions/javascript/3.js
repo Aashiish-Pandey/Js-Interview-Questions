@@ -1,6 +1,7 @@
 // Rotate the array in an efficient way
+https://www.geeksforgeeks.org/array-rotation/
 
-approch1 : O(n^2)
+approch1 : O(d*n)
 
 // array = [1,2,3,4,5] rotate=3
 
@@ -24,3 +25,5 @@ function rotateArray(arr, rotate) {
 }
 
 console.log(rotateArray(arr, 11));
+
+The time complexity of the code is O(d*n), where d is the number of rotations and n is the size of the array. 
