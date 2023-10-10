@@ -1,0 +1,76 @@
+const str1 = 'myNameIsAbhi'; //my_name_is_abhi
+
+const str2 = 'my_name_is_abhi'; //myNameIsAbhi
+
+
+function convertString(str) {
+
+  let convetedString =''
+
+  let stringType =''
+  if(str.includes('_')) {
+    stringType ="snakeCase"
+    for(let i =0 ;i<str.length;i++) {
+     if(str[i]!=='_') {
+       convetedString+=str[i]
+     } else {
+       convetedString+=str[i+1].toUpperCase()
+       i++
+       
+     }
+    }
+    
+  } else {
+    stringType ="camelCase"
+    for(let i=0;i<str.length;i++) {
+      if(str[i].toUpperCase()!==str[i]) {
+       convetedString+=str[i]
+     } else {
+       convetedString+= '_'+str[i]
+       
+     }
+      
+    }
+  }
+  console.log(stringType)
+  console.log(convetedString)
+  
+}
+
+//console.log(convertString(str1))
+
+// 
+
+var username = "Ashish";
+function getOutput () {
+  console.log('Inside func:', username)
+  
+  setTimeout(function() {
+    console.log('timeout:', username);
+  })
+  
+  new Promise((a, b) => {
+    a('Resolved');
+    console.log('Promise resolved');
+  }).then(function (res) {
+    console.log(res, username);  
+  });
+  var username = "Abhinav";
+  console.log('W/o this: ', username);
+  console.log('W this: ', this.username);
+}
+getOutput();
+console.log('getOutput is called');
+console.log('Outside func:', username);
+
+
+//o/p:
+
+// Ashish
+// console.log('Promise resolved');
+//  console.log('W/o this: ', Abhinav);
+//   console.log('W this: ', Ashish);
+// console.log('getOutput is called');
+// console.log('Outside func:', Ashish);
+// console.log(Resolved, Abhinav);
+// console.log('timeout:', Abhinav);

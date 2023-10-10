@@ -1,0 +1,50 @@
+https://codesandbox.io/s/bold-chihiro-82v59v?file=/src/App.js:0-873
+
+import "./styles.css";
+
+const comments = [
+  {
+    comment: "hello",
+    replies: [
+      {
+        comment: "hi",
+        replies: [
+          {
+            comment: "Hello",
+            replies: [
+              {
+                comment: "Hello inside"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        comment: "good morning"
+      }
+    ]
+  }
+];
+
+const PrintComment = ({ comments }) => {
+  if (!comments.replies) {
+    return <div className="comment">{comments.comment}</div>;
+  }
+  return (
+    <div>
+      {
+        comments.replies.map(reply=><div>
+          <div className ="comment">{reply.comment}</div>
+          <PrintComment comments={reply.replies} />
+        </div>)
+      }
+    </div>
+  );
+};
+export default function App() {
+  return (
+    <div className="comment">
+      <PrintComment comments={comments[0]} />
+    </div>
+  );
+}
